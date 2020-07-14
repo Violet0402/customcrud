@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>emplist</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="top_content"> 
+				<div id="header">
+					<div id="rightheader">
+						<p>
+							2009/11/20
+							<br />
+						</p>
+					</div>
+					<div id="topheader">
+						<h1 id="title">
+							<a th:action="@{/index/index}">main</a>
+						</h1>
+					</div>
+					<div id="navigation">
+					</div>
+				</div>
+				<div id="content">
+					<p id="whereami">
+					</p>
+					<h1>
+						Welcome! ID为<span th:text="${session.user.id}"/>的用户
+					</h1>
+					<table class="table">
+						<tr class="table_header">
+							<td>
+								ID
+							</td>
+							<td>
+								Mobile
+							</td>
+							<td>
+								password
+							</td>
+							<td>
+								sex
+							</td>
+							<td>
+								birthdate
+							</td>
+							<td>
+								address
+							</td>
+							<td>
+								email
+							</td>
+							<td>
+								state
+							</td>
+							<td>
+								create_time
+							</td>
+							<td>
+								update_time
+							</td>
+						</tr>
+						<tr th:class="${userStat.odd}?'row1':'row2'" th:each="user,userStat:${users}">
+							<td>
+								<span th:text="${user.id}"/>
+							</td>
+							<td>
+								<span th:text="${user.mobile}"/>
+							</td>
+							<td>
+								<span th:text="${user.password}"/>
+							</td>
+							<td>
+								<span th:text="${user.sex}"/>
+							</td>
+							<td>
+								<span th:text="${#dates.format(user.birthdate, 'yyyy-MM-dd')}"/>
+							</td>
+							<td>
+								<span th:text="${user.address}"/>
+							</td>
+							<td>
+								<span th:text="${user.email}"/>
+							</td>
+							<td>
+								<span th:text="${user.state}"/>
+							</td>
+							<td>
+								<span th:text="${#dates.format(user.create_time, 'yyyy-MM-dd')}"/>
+							</td>
+							<td>
+								<span th:text="${#dates.format(user.update_time, 'yyyy-MM-dd')}"/>
+							</td>
+							<td>
+								<a th:href="@{/user/delete(id=${user.id})}">delete user</a>&nbsp;
+								<a th:href="@{/user/findById(id=${user.id})}">update user</a>
+							</td>
+						</tr>
+					</table>
+					<p>
+						<input type="button" class="button" value="Add Employee" onclick="location.href='/custom/index/toSave'"/>
+					</p>
+				</div>
+			</div>
+			<div id="footer">
+				<div id="footer_bg">
+				ABC@126.com
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
