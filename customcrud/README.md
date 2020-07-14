@@ -8,7 +8,7 @@
 
 
 
-![image-20200714100452301](F:\git\crud_custom\customcrud\img\image-20200714100452301.png)
+![image-20200714100452301](https://github.com/Violet0402/customcrud/blob/master/customcrud/img/image-20200714100452301.png)
 
 ## 查询所有
 
