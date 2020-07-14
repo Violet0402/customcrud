@@ -2,7 +2,7 @@
 
 ## 登录
 
-首页访问url：
+首页访问url：http://localhost:8888/custom/index/index
 
 用户名：13888888888 密码：123
 
